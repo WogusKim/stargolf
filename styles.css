@@ -235,6 +235,7 @@ header {
     margin-top: 100px; /* 위쪽 여백을 증가 */
     margin-bottom: 100px; /* 아래쪽 여백을 증가 */
     font-weight: bold;
+    background-image: url('@/assets/image/inquiry.png');
 }
 
 .inquiry-section::before {
