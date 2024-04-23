@@ -48,7 +48,7 @@ header {
 }
 
 .intro {
-  background: url('/arr/golfcourse_intro.jpg') center center no-repeat fixed;
+  background: url('@/assets/golfcourse_intro.jpg') center center no-repeat fixed;
   background-size: cover;
   color: white;
   text-align: center;
@@ -136,7 +136,7 @@ header {
 
   /* 메인 스타일 */
 .main {
-  background: url('arr/golfcourse_main.jpg') center center no-repeat fixed;
+  background: url('@/assets/golfcourse_main.jpg') center center no-repeat fixed;
   background-size: cover;
   color: white;
   text-align: center;
