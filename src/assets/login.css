@@ -1,0 +1,95 @@
+body, html {
+    /* You might want to set a background color or image that matches the screenshot */
+    background: #f7f7f7; /* Example background color */
+    font-family: 'Arial', sans-serif;
+  }
+  
+  header {
+    /* To replicate the header from the screenshot, ensure proper styling */
+    background: #fff; /* Adjust if the screenshot has a different header background */
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 1px solid #eaeaea; /* If there is a border in the screenshot */
+  }
+  
+  .login-main {
+    width: 40%; /* Adjust width according to screenshot */
+    margin: 0 auto; /* Center the login form */
+    background: #fff; /* Assuming the main area is white */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Example shadow */
+    border-radius: 8px; /* If the corners are rounded in the screenshot */
+  }
+  
+  .social-login button {
+    /* Adjust button styling to match the screenshot */
+    width: calc(50% - 4px); /* Example calculation for button width if there are two buttons per row */
+    display: inline-block; /* To place buttons side by side */
+  }
+    
+    .kakao-login {
+      background-color: #FEE500; /* 카카오톡 컬러 */
+      color: black;
+    }
+    
+    .naver-login {
+      background-color: #1EC800; /* 네이버 컬러 */
+      color: white;
+    }
+    
+    .divider {
+      margin: 20px 0;
+    }
+    
+    .login-form label {
+      display: block;
+    }
+    
+    .login-form input[type="text"],
+    .login-form input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    
+    .remember-me {
+      text-align: left;
+    }
+    
+    .login-button {
+      padding: 10px 20px;
+      width: 100%;
+      background-color: #004080;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    
+    .help-links {
+      margin-top: 20px;
+    }
+    
+    .login-footer {
+      background-color: #414040;
+      text-align: center;
+      color: rgb(240, 240, 240);
+      font-size: 10px;
+      padding: 30px;
+      line-height: 0.8;
+    }
+    
+    .company_info{
+      text-align: center;
+      font-weight: bold;
+      color: rgb(240, 240, 240);
+      font-size: 12px;
+      padding: 2px;
+    }
+  
+    .policy_menu {
+      text-align: center;
+      font-weight: bold;
+      font-size: 12px;
+      padding: 2px;
+    }
