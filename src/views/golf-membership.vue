@@ -80,10 +80,10 @@
     name: 'golf-membership',
     methods: {
       callPhoneNumber() {
-        // 전화 번호 다이얼 로직 구현
+        alert('문의하실 전화번호는 02)123-1234 입니다.');
       },
       startChat() {
-        // 채팅 시작 로직 구현
+        alert('추후 서비스 예정입니다.');
       }
     }
   }

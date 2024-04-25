@@ -65,6 +65,30 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/golfcourse.vue')
+  },
+  {
+    path: '/golf-feedback',
+    name: 'golf-feedback',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/golf-feedback.vue')
+  },
+  {
+    path: '/golf_reservation',
+    name: 'golf_reservation',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/golf_reservation.vue')
+  },
+  {
+    path: '/golf-register',
+    name: 'golf-register',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/golf-register.vue')
   }
 ]
 

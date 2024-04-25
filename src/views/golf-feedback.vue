@@ -53,7 +53,13 @@ export default {
         { id: 1, category: '공지사항', title: '새로운 코스 오픈', time: '2024-04-01', content: '새로운 골프 코스를 오픈했어요~!' },
         { id: 2, category: '이벤트', title: '2024 봄 골프 토너먼트 대회 개최', time: '2024-03-25', content: '라베의 주인공은 누가 될까요?' },
         { id: 3, category: '프로모션', title: '봄 시즌 20% 할인', time: '2024-03-10', content: '회원권이 없으셔도 20% 할인은 동일하게 적용됩니다.' },
-        { id: 10, category: '유지보수', title: '유지보수로 인한 코스 임시 폐쇄 안내', time: '2024-01-02', content: '러프 가꾸기'}
+        { id: 4, category: '경기 일정', title: '여름 챔피언십 일정 공지', time: '2023-06-15', content: '여름 챔피언십 대회의 일정이 확정되었습니다. 모든 참가자는 대회 3일 전까지 등록을 완료해 주시기 바랍니다.' },
+        { id: 5, category: '이벤트', title: '어린이 골프 클리닉 개최', time: '2023-05-20', content: '어린이들을 위한 골프 클리닉을 개최합니다. 골프를 처음 접하는 어린이들도 쉽게 참여할 수 있는 프로그램입니다.' },
+        { id: 6, category: '공지사항', title: '회원 전용 라운지 개장', time: '2023-05-01', content: '새로운 회원 전용 라운지가 개장합니다. 편안한 휴식과 다양한 편의 시설을 이용할 수 있습니다.' },
+        { id: 7, category: '프로모션', title: '가을 시즌 선수권 대회 참가자 모집', time: '2023-03-05', content: '가을 시즌을 맞이하여 선수권 대회 참가자를 모집합니다. 모든 참가자에게는 특별 기념품을 제공합니다.' },
+        { id: 8, category: '공지사항', title: '골프 카트 이용 규정 변경', time: '2023-01-22', content: '골프 카트 이용 규정이 변경되었습니다. 모든 이용객은 변경된 규정을 확인하시기 바랍니다.' },
+        { id: 9, category: '공지사항', title: '시설 개선 작업 공지', time: '2023-01-10', content: '시설 개선을 위한 작업이 진행될 예정입니다. 이용에 불편을 드려 죄송합니다.' },
+        { id: 10, category: '유지보수', title: '유지보수로 인한 코스 임시 폐쇄 안내', time: '2023-01-02', content: '러프 가꾸기'}
       ],
       filteredPosts: []
     };
@@ -78,6 +84,7 @@ export default {
 <style scoped>
 .membership-banner {
   background-image: url('@/assets/image/feedback.jpg');
+  background-attachment: fixed; /* 배경 이미지를 스크롤 시 고정 */
   background-size: cover;
   background-position: center;
   height: 50vh;

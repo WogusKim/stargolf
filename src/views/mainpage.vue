@@ -12,8 +12,10 @@
         </div>
       </header>
       <main class="main-banner">
+        <div class="banner-image" style="background-image: url('image/golf-course.jpg');"></div>
+        <div class="banner-image" style="background-image: url('image/golf-course2.jpg');"></div>
         <h1>ENJOY TRAVEL & GOLF<br>IN A WIDER WORLD</h1>
-        <a href="login.html" class="join-btn">JOIN AS A MEMBER</a>
+        <router-link to ="/member-login" class="join-btn">JOIN AS A MEMBER</router-link>
       </main>
     </div>
   </template>
