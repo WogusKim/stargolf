@@ -7,7 +7,7 @@
     <button @click="btn_ev10">체크10하기</button>
     
     <input type="text" v-model="email" placeholder="이메일 입력">
-    <div> {{ memberid  }}</div>
+    <div v-if="username">{{ username }}</div>
   </template>
   
   <script>
@@ -17,12 +17,16 @@
     data() {
       return {
         responseData: ''
-        ,memberid: ''
+        ,username: ''
+        
       }
     },
     components: {
     },
+    computed: {
     
+    // ...mapState(["username"]), // `user`와 `token` 상태를 매핑
+    },
     methods: {
         btn_ev(){
             // alert('alert');
@@ -87,7 +91,7 @@
         },
         btn_ev7(){
             let obj = {};
-            obj.memberid = 'aaa';
+            obj.username = 'aaa';
             obj.name = '박세리';
             console.log('checck')
             axios.get("http://localhost:3000/query3",{
@@ -108,19 +112,19 @@
             .then(res=>{
                 console.log(res.data);
                 if (res.data.state == 'ok' && res.data.data.length > 0) {
-                    this.memberid = res.data.data[0].memberid;
+                //     this.username = res.data.data[0].username;
+                // } else {
+                //     this.username = 'Not found';
+                // }
+                    this.$store.dispatch('setusername', res.data.data[0].username);
                 } else {
-                    this.memberId = 'Not found';
+                    this.$store.dispatch('setusername', 'Not found');
                 }
-                
-
-
-
                 // this.responseData = JSON.stringify(res.data, null, 2); // JSON 형태로 데이터를 화면에 출력
                 // if (res.data.state === 'ok' && res.data.data.length > 0) {
-                //     this.memberId = res.data.data[0].memberid;
+                //     this.username = res.data.data[0].username;
                 // } else {
-                //     this.memberId = 'Not found';
+                //     this.username = 'Not found';
                 // }
             })
             .catch(err => {
