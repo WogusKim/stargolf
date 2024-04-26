@@ -2,25 +2,24 @@
   <div>
     <header></header>
     <main class="login-main">
-      <h1>Login</h1>
+      <h1 class="logintype">Login</h1>
+      <br>
       <div class="social-login">
-          <button class="kakao-login" @click="loginStart">카카오로 시작하기</button>
+        <img src="@/assets/image/kakaoLogin.png" alt="카카오로 시작하기" class="kakao-login" @click="loginStart">
+
       </div>
       <div class="divider">또는</div>
       <form class="login-form" @submit.prevent="bt_login">
-        <label for="username">아이디</label>
-        <input type="text" id="username" v-model="userId">
-        <label for="password">비밀번호</label>
-        <input type="password" id="password" v-model="userPassword">
-        <div class="remember-me">
-          <input type="checkbox" id="remember" v-model="rememberMe">
-          <label for="remember">로그인 상태 유지</label>
-        </div>
+        <input type="text" id="username" v-model="userId" placeholder="아이디" >
+        <input type="password" id="password" v-model="userPassword" placeholder="비밀번호" >
+        <span class="remember-me">
+          <input type="checkbox" id="remember" v-model="rememberMe"><label for="remember"><div class="remember-me-text">로그인 상태 유지</div></label>
+        </span>
         <button type="submit" class="login-button">로그인</button>
       </form>
       <div class="help-links">
         <router-link to="/golf-register">회원가입</router-link><br/>
-        <a href="#">아이디 · 비밀번호 찾기</a>
+        <!-- <a href="#">아이디 · 비밀번호 찾기</a> -->
       </div>
     </main>
   </div>
@@ -98,6 +97,8 @@ export default {
 }
 }
 </script>
+
+
 <style scoped>
-@import '@/assets/login.css';
+@import 'login.css';
 </style>

@@ -4,10 +4,11 @@ body, html { height: 100%; font-family: Arial, sans-serif; }
 
 /* Header styles */
 header {
-    display: flex;
-    justify-content: space-between;
-    padding: 1em 2em;
-    background: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
@@ -15,20 +16,35 @@ header {
     color: #000;
 }
 
+.nav-menu {
+  width: 100%;  /* 네비게이션 메뉴의 너비를 60%로 설정 */
+}
 .nav-menu ul {
-    list-style: none;
-    display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-weight: bold;
+  margin-right: 15px; /* 맨오른쪽마진 */
+}
+.nav-menu li {
+  padding: 0 10px;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.nav-menu li a {
+  color: #000;
+  text-decoration: none;
+  padding: 5px 10px;
+  display: block;
 }
 
-.nav-menu ul li {
-    padding: 0 1em;
-}
-
-.nav-menu ul li a {
-    text-decoration: none;
-    color: #000;
-    font-size: 1em;
-}
 
 /* 소개멘트 폰트 스타일 */
 .introduce {

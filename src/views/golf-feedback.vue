@@ -10,9 +10,16 @@
     </main>
     <div class="golf-feedback-container">
       <div class="search-container">
-        <input v-model="searchQuery" placeholder="Search posts..." class="search-box"/>
+        <select v-model="selectedCategory" @change="filterCategory">
+        <option value="all">전체</option>
+        <option v-for="category in categories" :key="category" :value="category">{{ category }}</option>
+        </select>
+  <input v-model="searchQuery" placeholder="Search posts..." class="search-box"/>
+  <button @click="searchPosts">Search</button>
+  <button @click="resetSearch">Reset</button>
+        <!-- <input v-model="searchQuery" placeholder="Search posts..." class="search-box"/>
         <button @click="searchPosts">Search</button>
-        <button @click="resetSearch">Reset</button>
+        <button @click="resetSearch">Reset</button> -->
       </div>
       <table>
         <thead>
@@ -49,6 +56,7 @@ export default {
     return {
       searchQuery: '',
       selectedPost: null,
+      selectedCategory: 'all',
       posts: [
         { id: 1, category: '공지사항', title: '새로운 코스 오픈', time: '2024-04-01', content: '새로운 골프 코스를 오픈했어요~!' },
         { id: 2, category: '이벤트', title: '2024 봄 골프 토너먼트 대회 개최', time: '2024-03-25', content: '라베의 주인공은 누가 될까요?' },
@@ -61,19 +69,29 @@ export default {
         { id: 9, category: '공지사항', title: '시설 개선 작업 공지', time: '2023-01-10', content: '시설 개선을 위한 작업이 진행될 예정입니다. 이용에 불편을 드려 죄송합니다.' },
         { id: 10, category: '유지보수', title: '유지보수로 인한 코스 임시 폐쇄 안내', time: '2023-01-02', content: '러프 가꾸기'}
       ],
-      filteredPosts: []
+      filteredPosts: [],
+      categories: []
     };
   },
   mounted() {
     this.filteredPosts = this.posts;
+    this.categories = Array.from(new Set(this.posts.map(post => post.category)));
   },
   methods: {
     searchPosts() {
-      this.filteredPosts = this.posts.filter(post => post.title.includes(this.searchQuery));
+      this.filterCategory();
     },
     resetSearch() {
       this.searchQuery = '';
-      this.filteredPosts = this.posts;
+      this.selectedCategory = 'all';
+      this.filterCategory();
+    },
+    filterCategory() {
+      if (this.selectedCategory === 'all') {
+        this.filteredPosts = this.posts.filter(post => post.title.includes(this.searchQuery));
+      } else {
+        this.filteredPosts = this.posts.filter(post => post.category === this.selectedCategory && post.title.includes(this.searchQuery));
+      }
     },
     openModal(post) {
       this.selectedPost = post;
