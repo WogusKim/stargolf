@@ -1,0 +1,84 @@
+-- stargolf.members definition
+
+CREATE TABLE `members` (
+  `memberindex` int NOT NULL AUTO_INCREMENT,
+  `memberid` varchar(50) NOT NULL,
+  `pw` varchar(100) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `phone` varchar(11) NOT NULL DEFAULT '01010000000',
+  `email` varchar(50) NOT NULL,
+  `birthdate` varchar(8) NOT NULL,
+  `gender` int NOT NULL,
+  `status` int NOT NULL DEFAULT '1',
+  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`memberindex`),
+  UNIQUE KEY `memberid` (`memberid`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+-- stargolf.membership_info definition
+
+CREATE TABLE `membership_info` (
+  `grade` varchar(1) NOT NULL,
+  `price` int NOT NULL,
+  `fee_week` int NOT NULL,
+  `fee_weekend` int NOT NULL,
+  `cntperyear` int NOT NULL,
+  `baseyear` varchar(8) NOT NULL,
+  `period` int NOT NULL,
+  PRIMARY KEY (`grade`,`baseyear`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+-- stargolf.notice definition
+
+CREATE TABLE `notice` (
+  `boardnum` int NOT NULL AUTO_INCREMENT,
+  `category` int NOT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  `contents` text,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`boardnum`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+-- stargolf.rsv_info definition
+
+CREATE TABLE `rsv_info` (
+  `rsvnum` int NOT NULL,
+  `rsv_firsthalf_start` varchar(4) NOT NULL,
+  `rsv_secondhalf_start` varchar(4) NOT NULL,
+  PRIMARY KEY (`rsvnum`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+-- stargolf.membership definition
+
+CREATE TABLE `membership` (
+  `membership_num` int NOT NULL AUTO_INCREMENT,
+  `memberid` varchar(50) NOT NULL,
+  `grade` varchar(1) NOT NULL,
+  `startdate` varchar(8) NOT NULL,
+  `enddate` varchar(8) NOT NULL,
+  `status` int NOT NULL DEFAULT '1',
+  PRIMARY KEY (`membership_num`),
+  KEY `membership_fk_1` (`memberid`),
+  KEY `membership_fk_2` (`grade`),
+  CONSTRAINT `membership_fk_1` FOREIGN KEY (`memberid`) REFERENCES `members` (`memberid`),
+  CONSTRAINT `membership_fk_2` FOREIGN KEY (`grade`) REFERENCES `membership_info` (`grade`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+-- stargolf.rsv definition
+
+CREATE TABLE `rsv` (
+  `rsvindex` int NOT NULL AUTO_INCREMENT,
+  `rsvnum` int NOT NULL,
+  `rsvdate` varchar(8) NOT NULL,
+  `rsv_memberid` varchar(50) NOT NULL,
+  PRIMARY KEY (`rsvindex`),
+  KEY `rsv_fk_1` (`rsvnum`),
+  KEY `rsv_fk_2` (`rsv_memberid`),
+  CONSTRAINT `rsv_fk_1` FOREIGN KEY (`rsvnum`) REFERENCES `rsv_info` (`rsvnum`),
+  CONSTRAINT `rsv_fk_2` FOREIGN KEY (`rsv_memberid`) REFERENCES `members` (`memberid`)
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
